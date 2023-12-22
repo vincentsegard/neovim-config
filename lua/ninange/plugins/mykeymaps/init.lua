@@ -13,6 +13,6 @@ return {
         vim.g.mapleader = ' '
         Map('n', '<C-down>', '1<C-w>+')
         Map('n', '<C-up>', '1<C-w>-')
-        Map('n', '<A-w>', '<C-w>')
+        --Map('n', '<A-w>', '<C-w>')
     end
 }
