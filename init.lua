@@ -272,7 +272,43 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("neo-tree").setup({
+        close_if_last_window = true,
+        window = {
+          width = 30,
+        },
+        buffers = {
+          follow_current_file = true,
+        },
+        filesystem = {
+          follow_current_file = true,
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            hide_by_name = {
+              "node_modules"
+            },
+            never_show = {
+              ".DS_Store",
+              "thumbs.db"
+            },
+          },
+        },
+      })
+    end
+  },
+
   { import = 'ninange.plugins' },
+
 }, {})
 
 -- [[ Setting options ]]
@@ -321,6 +357,10 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Remap for dealing ctrl+up / down to resize horizontal window)
+vim.keymap.set('n', '<C-down>', '1<C-w>+')
+vim.keymap.set('n', '<C-up>', '1<C-w>-')
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
