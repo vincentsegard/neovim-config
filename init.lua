@@ -284,7 +284,7 @@ require('lazy').setup({
       require("neo-tree").setup({
         close_if_last_window = true,
         window = {
-          width = 30,
+          width = 35,
         },
         buffers = {
           follow_current_file = true,
@@ -357,6 +357,10 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- unbinding ZZ & ZQ
+vim.keymap.set('n', 'ZZ', '')
+vim.keymap.set('n', 'ZQ', '')
 
 -- Remap for dealing ctrl+up / down to resize horizontal window)
 vim.keymap.set('n', '<C-down>', '1<C-w>+')
