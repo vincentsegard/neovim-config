@@ -44,6 +44,17 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Set default tab at 2 and use space as characters, can be override by plugins
+vim.opt.smarttab = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.bo.expandtab = true
+vim.bo.shiftwidth = 2
+vim.bo.tabstop = 2
+vim.bo.softtabstop = 2
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -325,8 +336,9 @@ vim.wo.number = true
 vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
+-- Remove this option if you want your OS clipboard to remain independent.
+-- See `:help 'clipboard'`
+-- May need to install xclip or wl-copy (and ssh maybe lemonade)
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
