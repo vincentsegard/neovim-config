@@ -207,8 +207,22 @@ require('lazy').setup({
       require('onedark').setup {
         style = 'darker'
       }
-      vim.cmd.colorscheme 'onedark'
+      -- vim.cmd.colorscheme 'onedark'
     end,
+  },
+
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require('solarized-osaka').setup {
+        transparent = false,
+      }
+      vim.cmd.colorscheme 'solarized-osaka'
+    end,
+
   },
 
   {
@@ -218,7 +232,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'onedark',
+        -- theme = 'solarized-osaka',
         component_separators = '|',
         section_separators = '',
       },
@@ -283,9 +297,14 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
+
+  -- to save files unwrittable (sudo)
+  { 'lambdalisue/suda.vim' },
+
   {
+    -- Tree navigation/search for files & folders 
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
@@ -298,10 +317,15 @@ require('lazy').setup({
           width = 35,
         },
         buffers = {
-          follow_current_file = true,
+          follow_current_file = {
+            enabled = true,
+          },
+        show_unloaded = true,
         },
         filesystem = {
-          follow_current_file = true,
+          follow_current_file = {
+            enabled = true,
+          },
           filtered_items = {
             hide_dotfiles = false,
             hide_gitignored = false,
@@ -370,11 +394,34 @@ vim.o.termguicolors = true
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Increment / Decrement
+vim.keymap.set('n', '+', '<C-a>')
+vim.keymap.set('n', '-', '<C-x>')
+
+-- Select all
+vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
+
+-- Select all
+vim.keymap.set('n', 'ss', ':split<Return>')
+vim.keymap.set('n', 'sv', ':vsplit<Return>')
+
+-- set :w! as :SudaWrite
+vim.keymap.set('c', 'w!', 'SudaWrite')
+
 -- unbinding ZZ & ZQ
 vim.keymap.set('n', 'ZZ', '')
 vim.keymap.set('n', 'ZQ', '')
 
--- Remap for dealing ctrl+up / down to resize horizontal window)
+-- Window
+vim.keymap.set('n', '<M-a>', '<C-w>w')
+vim.keymap.set('n', 's<left>', '<C-w>h')
+vim.keymap.set('n', 's<down>', '<C-w>j')
+vim.keymap.set('n', 's<up>', '<C-w>k')
+vim.keymap.set('n', 's<right>', '<C-w>l')
+vim.keymap.set('n', 'sh', '<C-w>h')
+vim.keymap.set('n', 'sj', '<C-w>j')
+vim.keymap.set('n', 'sk', '<C-w>k')
+vim.keymap.set('n', 'sl', '<C-w>l')
 vim.keymap.set('n', '<C-down>', '1<C-w>+')
 vim.keymap.set('n', '<C-up>', '1<C-w>-')
 
