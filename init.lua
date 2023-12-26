@@ -232,7 +232,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        -- theme = 'solarized-osaka',
+        theme = 'solarized-osaka',
         component_separators = '|',
         section_separators = '',
       },
@@ -312,6 +312,7 @@ require('lazy').setup({
     },
     config = function()
       require("neo-tree").setup({
+
         close_if_last_window = true,
         window = {
           width = 35,
@@ -413,15 +414,15 @@ vim.keymap.set('n', 'ZZ', '')
 vim.keymap.set('n', 'ZQ', '')
 
 -- Window
-vim.keymap.set('n', '<M-a>', '<C-w>w')
-vim.keymap.set('n', 's<left>', '<C-w>h')
-vim.keymap.set('n', 's<down>', '<C-w>j')
-vim.keymap.set('n', 's<up>', '<C-w>k')
-vim.keymap.set('n', 's<right>', '<C-w>l')
-vim.keymap.set('n', 'sh', '<C-w>h')
-vim.keymap.set('n', 'sj', '<C-w>j')
-vim.keymap.set('n', 'sk', '<C-w>k')
-vim.keymap.set('n', 'sl', '<C-w>l')
+vim.keymap.set('n', '<A-a>', '<C-w>w')
+vim.keymap.set('n', '<A-left>', '<C-w>h')
+vim.keymap.set('n', '<A-down>', '<C-w>j')
+vim.keymap.set('n', '<A-up>', '<C-w>k')
+vim.keymap.set('n', '<A-right>', '<C-w>l')
+vim.keymap.set('n', '<A-h>', '<C-w>h')
+vim.keymap.set('n', '<A-j>', '<C-w>j')
+vim.keymap.set('n', '<A-k>', '<C-w>k')
+vim.keymap.set('n', '<A-l>', '<C-w>l')
 vim.keymap.set('n', '<C-down>', '1<C-w>+')
 vim.keymap.set('n', '<C-up>', '1<C-w>-')
 
