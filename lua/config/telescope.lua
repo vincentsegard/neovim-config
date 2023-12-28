@@ -78,12 +78,10 @@ require('telescope').setup {
         ['<C-K>'] = actions.move_selection_previous,
         ['<TAB>'] = actions.toggle_selection + actions.move_selection_next,
         -- switch both functions bc I open tab more often in my workflow
-        ['<CR>'] = custom_actions.multi_selection_open_tab,
-        ['<C-CR>'] = custom_actions.multi_selection_open_vsplit,
-        -- ['<CR>'] = custom_actions.multi_selection_open,
-        -- ['<C-V>'] = custom_actions.multi_selection_open_vsplit,
+        ['<CR>'] = custom_actions.multi_selection_open,
+        ['<CR-C>'] = custom_actions.multi_selection_open_vsplit,
         -- ['<C-S>'] = custom_actions.multi_selection_open_split,
-        -- ['<C-T>'] = custom_actions.multi_selection_open_tab,
+        ['<CR-T>'] = custom_actions.multi_selection_open_tab,
         -- ['<C-DOWN>'] = require('telescope.actions').cycle_history_next,
         -- ['<C-UP>'] = require('telescope.actions').cycle_history_prev
       },
