@@ -10,7 +10,7 @@ return {
   --   end,
   -- },
   {
-    "craftzdog/solarized-osaka.nvim",
+    'craftzdog/solarized-osaka.nvim',
     lazy = false,
     priority = 1000,
     opts = {},

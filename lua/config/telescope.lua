@@ -2,8 +2,8 @@ M = {}
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
 local custom_actions = {}
 
 function custom_actions.clean_empty_buffers()
@@ -15,8 +15,8 @@ function custom_actions.clean_empty_buffers()
     for _, buf in ipairs(buffers) do
         if vim.api.nvim_buf_is_loaded(buf) and
            vim.fn.buflisted(buf) == 1 and
-           vim.api.nvim_buf_get_name(buf) == "" and
-           vim.api.nvim_buf_get_option(buf, "modified") == false then
+           vim.api.nvim_buf_get_name(buf) == '' and
+           vim.api.nvim_buf_get_option(buf, 'modified') == false then
             table.insert(buffers_to_delete, buf)
         end
     end
@@ -38,34 +38,34 @@ function custom_actions._multiopen(prompt_bufnr, open_cmd)
     actions.add_selection(prompt_bufnr)
   end
   actions.send_selected_to_qflist(prompt_bufnr)
-  vim.cmd("cfdo " .. open_cmd)
+  vim.cmd('cfdo ' .. open_cmd)
 
   -- close empty buffers
   custom_actions.clean_empty_buffers()
 
   -- disable insert mode after opening file
-  vim.cmd("stopinsert")
+  vim.cmd('stopinsert')
 
   -- open the quickfix list if there is more than one opened with enter key
-  if open_cmd == "edit" and num_selections > 1 then
-    vim.cmd("copen")
+  if open_cmd == 'edit' and num_selections > 1 then
+    vim.cmd('copen')
   end
 end
 
 function custom_actions.multi_selection_open_vsplit(prompt_bufnr)
-  custom_actions._multiopen(prompt_bufnr, "vsplit")
+  custom_actions._multiopen(prompt_bufnr, 'vsplit')
 end
 
 function custom_actions.multi_selection_open_split(prompt_bufnr)
-  custom_actions._multiopen(prompt_bufnr, "split")
+  custom_actions._multiopen(prompt_bufnr, 'split')
 end
 
 function custom_actions.multi_selection_open_tab(prompt_bufnr)
-  custom_actions._multiopen(prompt_bufnr, "tabe")
+  custom_actions._multiopen(prompt_bufnr, 'tabe')
 end
 
 function custom_actions.multi_selection_open(prompt_bufnr)
-  custom_actions._multiopen(prompt_bufnr, "edit")
+  custom_actions._multiopen(prompt_bufnr, 'edit')
 end
 
 -- Telescope setup 
@@ -73,30 +73,30 @@ require('telescope').setup {
   defaults = {
     mappings = {
       i = {
-        ["<ESC>"] = actions.close,
-        ["<C-J>"] = actions.move_selection_next,
-        ["<C-K>"] = actions.move_selection_previous,
-        ["<TAB>"] = actions.toggle_selection + actions.move_selection_next,
+        ['<ESC>'] = actions.close,
+        ['<C-J>'] = actions.move_selection_next,
+        ['<C-K>'] = actions.move_selection_previous,
+        ['<TAB>'] = actions.toggle_selection + actions.move_selection_next,
         -- switch both functions bc I open tab more often in my workflow
-        ["<CR>"] = custom_actions.multi_selection_open_tab,
-        ["<C-CR>"] = custom_actions.multi_selection_open_vsplit,
-        -- ["<CR>"] = custom_actions.multi_selection_open,
-        -- ["<C-V>"] = custom_actions.multi_selection_open_vsplit,
-        -- ["<C-S>"] = custom_actions.multi_selection_open_split,
-        -- ["<C-T>"] = custom_actions.multi_selection_open_tab,
-        -- ["<C-DOWN>"] = require("telescope.actions").cycle_history_next,
-        -- ["<C-UP>"] = require("telescope.actions").cycle_history_prev
+        ['<CR>'] = custom_actions.multi_selection_open_tab,
+        ['<C-CR>'] = custom_actions.multi_selection_open_vsplit,
+        -- ['<CR>'] = custom_actions.multi_selection_open,
+        -- ['<C-V>'] = custom_actions.multi_selection_open_vsplit,
+        -- ['<C-S>'] = custom_actions.multi_selection_open_split,
+        -- ['<C-T>'] = custom_actions.multi_selection_open_tab,
+        -- ['<C-DOWN>'] = require('telescope.actions').cycle_history_next,
+        -- ['<C-UP>'] = require('telescope.actions').cycle_history_prev
       },
     },
     vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--hidden",
-      "--smart-case"
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--hidden',
+      '--smart-case'
     },
     layout_config = {
       vertical = {
@@ -107,20 +107,20 @@ require('telescope').setup {
       },
     },
     path_display = function(_, path)
-      local tail = require("telescope.utils").path_tail(path)
-      return string.format("%s (%s)", tail, path)
+      local tail = require('telescope.utils').path_tail(path)
+      return string.format('%s (%s)', tail, path)
     end,
-    selection_strategy = "reset",
-    sorting_strategy = "ascending",
+    selection_strategy = 'reset',
+    sorting_strategy = 'ascending',
     file_ignore_patterns = {
-      "dist/.*",
-      "%.git/.*",
-      "%.vim/.*",
-      "node_modules/.*",
-      "%.idea/.*",
-      "%.vscode/.*",
-      "%.history/.*",
-      "%.themes/.*"
+      'dist/.*',
+      '%.git/.*',
+      '%.vim/.*',
+      'node_modules/.*',
+      '%.idea/.*',
+      '%.vscode/.*',
+      '%.history/.*',
+      '%.themes/.*'
     },
   },
 }
