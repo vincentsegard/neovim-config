@@ -11,7 +11,13 @@ vim.opt.guicursor= "n-v-c-sm:block,i-ci:ver30-iCursor-blinkwait300-blinkon200-bl
 vim.o.hlsearch = true
 
 -- Make line numbers default
+-- full gutters with absolute & relative:
+-- vim.opt.nu = true
+-- vim.opt.relativenumber = true
+-- vim.o.statuscolumn = "%s %l %r "
+-- gutter with relative (absolute just current line)
 vim.wo.number = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
