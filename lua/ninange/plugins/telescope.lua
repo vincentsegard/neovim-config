@@ -42,13 +42,13 @@ return {
       if num_selections >= 1 then
         actions.send_selected_to_qflist(prompt_bufnr)
         vim.cmd('cfdo ' .. open_cmd)
+        -- close empty buffers
+        custom_actions.clean_empty_buffers()
+        -- disable insert mode after opening file
+        vim.cmd('stopinsert')
+      else
+        actions.file_edit(prompt_bufnr)
       end
-
-      -- close empty buffers
-      custom_actions.clean_empty_buffers()
-
-      -- disable insert mode after opening file
-      vim.cmd('stopinsert')
 
       -- open the quickfix list if there is more than one opened with enter key
       if open_cmd == 'edit' and num_selections > 1 then
@@ -83,9 +83,9 @@ return {
             ['<TAB>'] = actions.toggle_selection + actions.move_selection_next,
             -- switch both functions bc I open tab more often in my workflow
             ['<CR>'] = custom_actions.multi_selection_open,
-            ['<CR-C>'] = custom_actions.multi_selection_open_vsplit,
+            ['<C-CR>'] = custom_actions.multi_selection_open_vsplit,
             -- ['<C-S>'] = custom_actions.multi_selection_open_split,
-            ['<CR-T>'] = custom_actions.multi_selection_open_tab,
+            ['<C-A-CR>'] = custom_actions.multi_selection_open_tab,
             -- ['<C-DOWN>'] = require('telescope.actions').cycle_history_next,
             -- ['<C-UP>'] = require('telescope.actions').cycle_history_prev
           },
