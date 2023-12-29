@@ -52,7 +52,7 @@ vim.keymap.set('n', 'jb', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = t
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list (deprecated, type x instead)' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostics list (x is better)' })
 
 -- Escaping research & notifications with Escape
 vim.keymap.set('',  '<Esc>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>', {silent = true})
