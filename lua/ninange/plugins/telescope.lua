@@ -36,11 +36,13 @@ return {
       local picker = action_state.get_current_picker(prompt_bufnr)
       -- local selected_entry = action_state.get_selected_entry()
       local num_selections = #picker:get_multi_selection()
-      if not num_selections or num_selections <= 1 then
+      if num_selections == 1 then
         actions.add_selection(prompt_bufnr)
       end
-      actions.send_selected_to_qflist(prompt_bufnr)
-      vim.cmd('cfdo ' .. open_cmd)
+      if num_selections >= 1 then
+        actions.send_selected_to_qflist(prompt_bufnr)
+        vim.cmd('cfdo ' .. open_cmd)
+      end
 
       -- close empty buffers
       custom_actions.clean_empty_buffers()
