@@ -1,10 +1,15 @@
--- to save files unwrittable (sudo)
 return {
   {
+    -- noice notifications & commands
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
       -- add any options here
+      filter = {
+        event = "notify",
+        find = "No information available",
+      },
+      opts = { skip = true },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",

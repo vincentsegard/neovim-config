@@ -55,6 +55,25 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- Escaping research & notifications with Escape
-vim.keymap.set('',  '<Esc>', "<ESC>:noh<CR>:lua require('notify').dismiss()<CR>", {silent = true})
+vim.keymap.set('',  '<Esc>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>', {silent = true})
+
+-- Hyperlink open with CTRL + Left Click
+local openUrl = function()
+    return function()
+        local file = vim.fn.expand("<cWORD>")
+        -- open(macos) || xdg-open(linux)
+        local result = ":!open " .. file
+        if
+            string.match(file, "https") == "https"
+            or string.match(file, "http") == "http"
+        then
+            vim.cmd(result)
+        else
+            return print("URL non détectée (placer curseur dessus)")
+        end
+    end
+end
+local open = openUrl()
+vim.keymap.set("n", "<C-LeftMouse>", open, { desc = "OpenUrl Undercurword" })
 
 return M
