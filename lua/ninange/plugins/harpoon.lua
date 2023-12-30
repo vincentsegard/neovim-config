@@ -1,6 +1,6 @@
 return {
   'ThePrimeagen/harpoon', branch = 'harpoon2',
-  requires = { 
+  requires = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim'
   },
@@ -25,8 +25,9 @@ return {
       }):find()
     end
 
-    vim.keymap.set('n', '<C-e>', function() toggle_telescope(harpoon:list()) end, { desc = 'Open harpoon window' })
-    vim.keymap.set('n', '<leader>H', function() harpoon:list():append() end, { desc = 'Harpoon the file' })
+    vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+    vim.keymap.set('n', '<A-e>', function() toggle_telescope(harpoon:list()) end, { desc = 'Open harpoon window' })
+    vim.keymap.set('n', '<leader>a', function() harpoon:list():append() end, { desc = 'Harpoon the file' })
 
     vim.keymap.set('n', '<A-j>', function() harpoon:list():select(1) end)
     vim.keymap.set('n', '<A-k>', function() harpoon:list():select(2) end)

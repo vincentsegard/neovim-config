@@ -4,9 +4,13 @@ M = {}
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- PageUp / PageDown
--- vim.keymap.set('n', '<PageUp>', '<C-u>')
--- vim.keymap.set('n', '<PageDown>', '<C-d>')
+-- Scroll keep cursor center
+vim.keymap.set('n', '<PageUp>', '<PageUp>zz')
+vim.keymap.set('n', '<PageUp>', '<PageUp>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- Increment / Decrement
 vim.keymap.set('n', '+', '<C-a>')
@@ -15,7 +19,20 @@ vim.keymap.set('n', '-', '<C-x>')
 -- Select all
 vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
 
--- Select all
+-- Paste on highlighted without yank new highlight keeping old yank 
+vim.keymap.set('x', '<leader>p', '"_dp')
+
+-- Replace highlighted text with whatever i type
+vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+
+-- Move selected UP/down
+vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv')
+vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv')
+
+-- Cursor don't move when J
+vim.keymap.set('n', 'J','mzJ`z')
+
+-- Split
 vim.keymap.set('n', 'ss', ':split<Return>')
 vim.keymap.set('n', 'sv', ':vsplit<Return>')
 
@@ -23,8 +40,9 @@ vim.keymap.set('n', 'sv', ':vsplit<Return>')
 vim.keymap.set('c', 'w!', 'SudaWrite')
 
 -- unbinding ZZ & ZQ
-vim.keymap.set('n', 'ZZ', '')
-vim.keymap.set('n', 'ZQ', '')
+vim.keymap.set('n', 'ZZ', '<nop>')
+vim.keymap.set('n', 'ZQ', '<nop>')
+vim.keymap.set('n', 'Q', '<nop>')
 
 -- Window
 vim.keymap.set('n', '<A-a>', '<C-w>w')
