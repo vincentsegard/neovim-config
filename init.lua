@@ -7,7 +7,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 if vim.loader then
-	vim.loader.enable()
+  vim.loader.enable()
 end
 
 -- [[ Install `lazy.nvim` plugin manager ]]
@@ -78,6 +78,7 @@ require('lazy').setup({
 
   { import = 'ninange.plugins' },
   { import = 'config' },
+  { import = 'kickstart.plugins' },
 
 }, {})
 
