@@ -55,29 +55,29 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostics list (x is better)' })
 
 -- Escaping research & notifications with Escape
-vim.keymap.set('',  '<Esc>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>', {silent = true})
+vim.keymap.set('', '<Esc>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>', { silent = true })
 
 -- Hyperlink open with CTRL + Left Click
 local openUrl = function()
-    return function()
-        local file = vim.fn.expand("<cWORD>")
-        -- open(macos) || xdg-open(linux)
-        local result = ":!open " .. file
-        if
-            string.match(file, "https") == "https"
-            or string.match(file, "http") == "http"
-        then
-            vim.cmd(result)
-        else
-            return print("URL non détectée (placer curseur dessus)")
-        end
+  return function()
+    local file = vim.fn.expand("<cWORD>")
+    -- open(macos) || xdg-open(linux)
+    local result = ":!open " .. file
+    if
+        string.match(file, "https") == "https"
+        or string.match(file, "http") == "http"
+    then
+      vim.cmd(result)
+    else
+      return print("URL non détectée (placer curseur dessus)")
     end
+  end
 end
 local open = openUrl()
 vim.keymap.set("n", "<C-LeftMouse>", open, { desc = "OpenUrl Undercurword" })
 
 -- open Neotree
-vim.keymap.set('n', '<leader>n', '<Cmd>Neotree toggle<CR>', { desc = "Neotree"})
+vim.keymap.set('n', '<leader>n', '<Cmd>Neotree toggle<CR>', { desc = "Neotree" })
 
 -- Toggle "trouble" tool for diagnostics
 vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Open diagnostic" })
@@ -88,6 +88,6 @@ vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist"
 vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "lsp_references" })
 
 -- alternate file bc azerty
-vim.keymap.set('n', '<A-f>', '<C-^>')
+-- vim.keymap.set('n', '<A-f>', '<C-^>')
 
 return M
