@@ -27,14 +27,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure plugins ]]
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
-
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -71,6 +64,18 @@ require('lazy').setup({
     -- See `:help ibl`
     main = 'ibl',
     opts = {},
+  },
+
+  {
+    -- ZenMode 
+    "folke/zen-mode.nvim",
+    opts = {}
+  },
+
+  {
+    -- Twilight
+    "folke/twilight.nvim",
+    opts = {}
   },
 
   -- 'gc' to comment visual regions/lines
