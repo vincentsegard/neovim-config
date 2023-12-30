@@ -19,7 +19,7 @@ return {
           follow_current_file = {
             enabled = true,
           },
-        show_unloaded = true,
+          show_unloaded = true,
         },
         filesystem = {
           use_libuv_file_watcher = true,

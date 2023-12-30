@@ -12,26 +12,26 @@ return {
     local custom_actions = {}
 
     function custom_actions.clean_empty_buffers()
-        -- Get all buffer numbers
-        local buffers = vim.api.nvim_list_bufs()
+      -- Get all buffer numbers
+      local buffers = vim.api.nvim_list_bufs()
 
-        -- Filter out buffers that are not listed, are empty, and are not modified
-        local buffers_to_delete = {}
-        for _, buf in ipairs(buffers) do
-            if vim.api.nvim_buf_is_loaded(buf) and
-               vim.fn.buflisted(buf) == 1 and
-               vim.api.nvim_buf_get_name(buf) == '' and
-               vim.api.nvim_buf_get_option(buf, 'modified') == false then
-                table.insert(buffers_to_delete, buf)
-            end
+      -- Filter out buffers that are not listed, are empty, and are not modified
+      local buffers_to_delete = {}
+      for _, buf in ipairs(buffers) do
+        if vim.api.nvim_buf_is_loaded(buf) and
+          vim.fn.buflisted(buf) == 1 and
+          vim.api.nvim_buf_get_name(buf) == '' and
+          vim.api.nvim_buf_get_option(buf, 'modified') == false then
+          table.insert(buffers_to_delete, buf)
         end
+      end
 
-        -- Delete the buffers if any are found
-        if #buffers_to_delete > 0 then
-            for _, buf in ipairs(buffers_to_delete) do
-                vim.api.nvim_buf_delete(buf, {force = true})
-            end
+      -- Delete the buffers if any are found
+      if #buffers_to_delete > 0 then
+        for _, buf in ipairs(buffers_to_delete) do
+          vim.api.nvim_buf_delete(buf, {force = true})
         end
+      end
     end
 
     -- Handle how to open multiples files viewed and tabed through telescope
