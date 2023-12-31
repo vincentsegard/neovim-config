@@ -9,21 +9,7 @@ return {
 
 	-- Additional lua configuration, makes nvim stuff amazing!
 	'folke/neodev.nvim',
-	{
-		"williamboman/mason.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"stylua",
-				"selene",
-				"luacheck",
-				"shellcheck",
-				"shfmt",
-				"tailwindcss-language-server",
-				"typescript-language-server",
-				"css-lsp",
-			})
-		end,
-	},
+	{	"williamboman/mason.nvim" },
 
 	-- lsp servers
 	{

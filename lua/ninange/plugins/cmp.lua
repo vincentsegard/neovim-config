@@ -34,6 +34,7 @@ return {
       return
     end
 
+    -- use this in sorting if need to display _abcd in a particular order (python)
     local cmp_under_comparator_ok, cmp_under_comparator = pcall(require, "cmp-under-comparator")
     if not cmp_under_comparator_ok then
       return
@@ -129,16 +130,17 @@ return {
           function(...)
             return cmp_buffer:compare_locality(...)
           end,
-          -- require("copilot_cmp.comparators").prioritize,
           cmp.config.compare.offset,
           cmp.config.compare.exact,
           cmp.config.compare.score,
           cmp.config.compare.recently_used,
+          -- require("copilot_cmp.comparators").prioritize,
           cmp.config.compare.locality,
           cmp.config.compare.kind,
           cmp.config.compare.sort_text,
           cmp.config.compare.length,
           cmp.config.compare.order,
+          require "cmp-under-comparator".under,
         },
       },
       window = {
