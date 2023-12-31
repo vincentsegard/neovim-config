@@ -82,8 +82,8 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   { import = 'ninange.plugins' },
-  { import = 'config' },
   { import = 'kickstart.plugins' },
+  { import = 'config' },
 
 }, {})
 
