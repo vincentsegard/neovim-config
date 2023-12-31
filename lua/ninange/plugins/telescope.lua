@@ -2,7 +2,7 @@ return {
   'nvim-telescope/telescope.nvim', tag = '0.1.5',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   },
   config = function()
     -- [[ Configure Telescope ]]
@@ -118,6 +118,7 @@ return {
         selection_strategy = 'reset',
         sorting_strategy = 'ascending',
         file_ignore_patterns = {
+          '%.ttf',
           'dist/.*',
           '%.git/.*',
           '%.vim/.*',
@@ -186,10 +187,27 @@ return {
         prompt_title = 'Live Grep in Open Files',
       }
     end
+    local function custom_find_files()
+      require("telescope.builtin").find_files({
+        hidden = true, column = true, file_ignore_patterns =
+        {
+          '%.ttf',
+          'dist/.*',
+          '%.git/.*',
+          '%.vim/.*',
+          'node_modules/.*',
+          '%.idea/.*',
+          '%.vscode/.*',
+          '%.history/.*',
+          '%.themes/.*'
+        }
+      })
+    end
     vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
-    vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
+    vim.keymap.set('n', '<leader>st', require('telescope.builtin').builtin, { desc = '[S]earch [T]elescope' })
+    vim.keymap.set('n', '<leader>ss', require('telescope.builtin').live_grep, { desc = '[S]uper [S]earch (grep)' })
     vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-    vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+    vim.keymap.set('n', '<leader>sf', custom_find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
