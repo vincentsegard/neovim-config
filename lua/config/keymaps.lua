@@ -106,6 +106,6 @@ vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist"
 vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "lsp_references" })
 
 -- alternate file bc azerty
--- vim.keymap.set('n', '<A-f>', '<C-^>')
+vim.keymap.set('n', '<A-z>', '<C-^>')
 
 return M

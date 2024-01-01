@@ -62,6 +62,8 @@ vim.bo.shiftwidth = 2
 vim.bo.tabstop = 2
 vim.bo.softtabstop = 2
 
+vim.o.linebreak = true
+
 -- Display at least X lines before/after cursolr
 vim.opt.scrolloff = 8
 return M
