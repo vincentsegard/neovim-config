@@ -81,8 +81,10 @@ return {
         mappings = {
           i = {
             ['<ESC>'] = actions.close,
-            ['<C-J>'] = actions.move_selection_next,
-            ['<C-K>'] = actions.move_selection_previous,
+            ['<C-j>'] = actions.move_selection_next,
+            ['<C-k>'] = actions.move_selection_previous,
+            ['<A-j>'] = actions.move_selection_next,
+            ['<A-k>'] = actions.move_selection_previous,
             ['<TAB>'] = actions.toggle_selection + actions.move_selection_next,
             -- switch both functions bc I open tab more often in my workflow
             ['<CR>'] = custom_actions.multi_selection_open,
@@ -190,17 +192,17 @@ return {
     local function custom_find_files()
       require("telescope.builtin").find_files({
         hidden = true, column = true, file_ignore_patterns =
-        {
-          '%.ttf',
-          'dist/.*',
-          '%.git/.*',
-          '%.vim/.*',
-          'node_modules/.*',
-          '%.idea/.*',
-          '%.vscode/.*',
-          '%.history/.*',
-          '%.themes/.*'
-        }
+          {
+            '%.ttf',
+            'dist/.*',
+            '%.git/.*',
+            '%.vim/.*',
+            'node_modules/.*',
+            '%.idea/.*',
+            '%.vscode/.*',
+            '%.history/.*',
+            '%.themes/.*'
+          }
       })
     end
     vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })

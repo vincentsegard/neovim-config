@@ -5,7 +5,7 @@ M = {}
 -- NOTE: You can change these options as you wish!
 
 -- Cursor
-vim.opt.guicursor= "n-v-c-sm:block,i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150,r-cr-o:hor20"
+vim.opt.guicursor= "n-v-c-sm:block,i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150"
 
 -- Set highlight on search
 vim.o.hlsearch = true
@@ -53,17 +53,20 @@ vim.o.termguicolors = true
 
 -- Set default tab at 2 and use space as characters, can be override by plugins
 vim.opt.smarttab = true
+vim.opt.smartindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
 vim.bo.expandtab = true
-vim.bo.shiftwidth = 2
 vim.bo.tabstop = 2
-vim.bo.softtabstop = 2
+vim.bo.shiftwidth = 2
 
+-- go back to line without breaking a word 
 vim.o.linebreak = true
 
+-- title
+vim.opt.title = true
+
 -- Display at least X lines before/after cursolr
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 return M

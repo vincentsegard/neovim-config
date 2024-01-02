@@ -27,7 +27,7 @@ return {
 
     logo = string.rep("\n", 5) .. logo .. "\n\n"
 
-    -- Custom find files to find dotfiels -not workinging so I created a hax- 
+    -- Custom find files to find dotfiles -not workinging so I created a hax- 
     -- local function custom_find_files()
     --   require("telescope.builtin").find_files({
     --     hidden = true, column = true, file_ignore_patterns =
