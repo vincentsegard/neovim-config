@@ -109,4 +109,7 @@ vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references")
 -- alternate file bc azerty
 vim.keymap.set('n', '<A-z>', '<C-^>')
 
+-- quit terminal mode
+vim.keymap.set('t', '<Esc>', '<C-\\><C-N>')
+
 return M
