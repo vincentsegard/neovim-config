@@ -95,15 +95,28 @@ return {
             -- ['<C-UP>'] = require('telescope.actions').cycle_history_prev
           },
         },
-        vimgrep_arguments = {
+        find_command = {
           'rg',
+          '--no-ignore',
           '--color=never',
           '--no-heading',
           '--with-filename',
           '--line-number',
           '--column',
           '--hidden',
-          '--smart-case'
+          '--smart-case',
+        },
+        vimgrep_arguments = {
+          'rg',
+          '--no-ignore',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--hidden',
+          '--smart-case',
+          '-u',
         },
         layout_config = {
           vertical = {
@@ -119,7 +132,9 @@ return {
         end,
         selection_strategy = 'reset',
         sorting_strategy = 'ascending',
+        no_ignore = true,
         file_ignore_patterns = {
+          'tmp/cache/.*',
           '%.ttf',
           'dist/.*',
           '%.git/.*',
@@ -165,6 +180,7 @@ return {
       local git_root = find_git_root()
       if git_root then
         require('telescope.builtin').live_grep {
+          no_ignore = true,
           search_dirs = { git_root },
         }
       end
@@ -186,13 +202,15 @@ return {
     local function telescope_live_grep_open_files()
       require('telescope.builtin').live_grep {
         grep_open_files = true,
+        no_ignore = true,
         prompt_title = 'Live Grep in Open Files',
       }
     end
     local function custom_find_files()
       require("telescope.builtin").find_files({
-        hidden = true, column = true, file_ignore_patterns =
+        no_ignore = true, hidden = true, column = true, file_ignore_patterns =
           {
+            'tmp/cache/.*',
             '%.ttf',
             'dist/.*',
             '%.git/.*',
