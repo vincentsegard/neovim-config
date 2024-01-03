@@ -9,7 +9,7 @@ return {
 
 	-- Additional lua configuration, makes nvim stuff amazing!
 	'folke/neodev.nvim',
-	{	"williamboman/mason.nvim" },
+	{	"williamboman/mason.nvim", config = true },
 
 	-- lsp servers
 	{
