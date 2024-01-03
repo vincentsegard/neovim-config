@@ -46,6 +46,7 @@ vim.keymap.set('n', 'Q', '<nop>')
 
 -- Window
 vim.keymap.set('n', '<A-a>', '<C-w>w')
+vim.keymap.set('n', '<A-q>', '<C-w>o')
 vim.keymap.set('n', '<A-left>', '<C-w>h')
 vim.keymap.set('n', '<A-down>', '<C-w>j')
 vim.keymap.set('n', '<A-up>', '<C-w>k')
