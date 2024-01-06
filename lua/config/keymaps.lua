@@ -80,7 +80,7 @@ vim.keymap.set('', '<Esc>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>',
 local openUrl = function()
   return function()
     local file = vim.fn.expand("<cWORD>")
-    -- open(macos) || xdg-open(linux)
+    -- xdg-open(linux)
     local result = ":!open " .. file
     if
         string.match(file, "https") == "https"
@@ -92,8 +92,7 @@ local openUrl = function()
     end
   end
 end
-local open = openUrl()
-vim.keymap.set("n", "<C-LeftMouse>", open, { desc = "OpenUrl Undercurword" })
+vim.keymap.set("n", "<C-LeftMouse>", openUrl(), { desc = "OpenUrl Undercurword" })
 
 -- alternate file bc azerty
 vim.keymap.set('n', '<A-z>', '<C-^>')
