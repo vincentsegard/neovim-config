@@ -95,17 +95,6 @@ end
 local open = openUrl()
 vim.keymap.set("n", "<C-LeftMouse>", open, { desc = "OpenUrl Undercurword" })
 
--- open Neotree
-vim.keymap.set('n', '<leader>n', '<Cmd>Neotree toggle<CR>', { desc = "Neotree" })
-
--- Toggle "trouble" tool for diagnostics
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Open diagnostic" })
-vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "workspace diagnostics" })
-vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = "document diagnostics" })
-vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "quickfix" })
-vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "loclist" })
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "lsp_references" })
-
 -- alternate file bc azerty
 vim.keymap.set('n', '<A-z>', '<C-^>')
 

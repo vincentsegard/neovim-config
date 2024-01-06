@@ -8,9 +8,19 @@ return {
       'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
     },
-    config = function()
+    opts = {
+      -- open Neotree
+      vim.keymap.set('n', '<leader>n', '<Cmd>Neotree toggle<CR>', { desc = "Neotree" })
+    },
+    init = function()
       require('neo-tree').setup({
-
+        -- Hack to auto quit Neotree before session.lua register current session
+        vim.api.nvim_create_autocmd("VimLeavePre", {
+          group = vim.api.nvim_create_augroup("neotree", { clear = true }),
+          callback = function()
+            vim.cmd('Neotree close')
+          end
+        }),
         close_if_last_window = true,
         window = {
           width = 35,

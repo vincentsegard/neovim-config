@@ -9,7 +9,11 @@ return {
         event = "notify",
         find = "No information available",
       },
-      opts = { skip = true },
+      opts = {
+        -- Escaping research & notifications with Escape
+        vim.keymap.set('', '<Esc>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>', { silent = true }),
+        skip = true,
+      },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
