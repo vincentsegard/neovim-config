@@ -35,6 +35,7 @@ return {
     end
 
     -- use this in sorting if need to display _abcd in a particular order (python)
+    ---@diagnostic disable-next-line: unused-local
     local cmp_under_comparator_ok, cmp_under_comparator = pcall(require, 'cmp-under-comparator')
     if not cmp_under_comparator_ok then
       return
