@@ -56,7 +56,7 @@ return {
         header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
-          { action = "lua require('telescope.builtin').find_files({ hidden = true, column = true, file_ignore_patterns = { '%.ttf', 'dist/.*', '%.git/.*', '%.vim/.*', 'node_modules/.*', '%.idea/.*', '%.vscode/.*', '%.history/.*', '%.themes/.*' } })",
+          { action = "lua require('telescope.builtin').find_files({ no_ignore = true, hidden = true, column = true, file_ignore_patterns = { 'tmp/cache/.*', '%.ttf', 'dist/.*', '%.git/.*', '%.vim/.*', 'node_modules/.*', '%.idea/.*', '%.vscode/.*', '%.history/.*', '%.themes/.*' } })",
             desc = " Find file",       icon = " ", key = "f" },
           { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
           { action = "Telescope oldfiles",                                       desc = " Recent files",    icon = " ", key = "r" },
