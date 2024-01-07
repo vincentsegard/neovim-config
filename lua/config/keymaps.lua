@@ -23,7 +23,7 @@ vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
 vim.keymap.set('x', '<leader>p', '"_dp')
 
 -- Replace highlighted text with whatever i type
-vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+vim.keymap.set('n', '<leader>S', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = '[S]ubstitute current highlighted' })
 
 -- Move selected UP/down
 vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv', {silent = true})
@@ -83,8 +83,8 @@ local openUrl = function()
     -- xdg-open(linux)
     local result = ":!open " .. file
     if
-        string.match(file, "https") == "https"
-        or string.match(file, "http") == "http"
+      string.match(file, "https") == "https"
+      or string.match(file, "http") == "http"
     then
       vim.cmd(result)
     else

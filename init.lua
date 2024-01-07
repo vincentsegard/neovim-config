@@ -35,24 +35,21 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = true,
-        theme = 'solarized-osaka',
-        component_separators = '|',
-        section_separators = '',
+	icons_enabled = true,
+	theme = 'solarized-osaka',
+	component_separators = '|',
+	section_separators = '',
       },
       sections = {
-        lualine_a = {
-          'buffers',
-        },
+	lualine_a = {
+	  'buffers',
+	},
       },
     },
   },
@@ -61,24 +58,24 @@ require('lazy').setup({
     "lukas-reineke/indent-blankline.nvim",
     opts = {
       indent = {
-        char = "│",
-        tab_char = "│",
+	char = "│",
+	tab_char = "│",
       },
       scope = { enabled = true },
       exclude = {
-        filetypes = {
-          "help",
-          "alpha",
-          "dashboard",
-          "neo-tree",
-          "Trouble",
-          "trouble",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "lazyterm",
-        },
+	filetypes = {
+	  "help",
+	  "alpha",
+	  "dashboard",
+	  "neo-tree",
+	  "Trouble",
+	  "trouble",
+	  "lazy",
+	  "mason",
+	  "notify",
+	  "toggleterm",
+	  "lazyterm",
+	},
       },
     },
     main = "ibl",
