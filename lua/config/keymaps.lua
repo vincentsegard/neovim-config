@@ -1,8 +1,11 @@
 M = {}
+-- mapleader defined in init.lua 
+
 -- [[ Basic Keymaps ]]
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+-- See `:help vim.keymap.set()
+
+-- -- disabling Ctrl+Z to avoid interrupt by mistake
+vim.keymap.set('n', '<C-z>', '<Nop>')
 
 -- Scroll keep cursor center
 vim.keymap.set('n', '<PageUp>', '<PageUp>zz')
@@ -47,14 +50,6 @@ vim.keymap.set('n', 'Q', '<nop>')
 -- Window
 vim.keymap.set('n', '<A-a>', '<C-w>w')
 vim.keymap.set('n', '<A-q>', '<C-w>o')
-vim.keymap.set('n', '<A-left>', '<C-w>h')
-vim.keymap.set('n', '<A-down>', '<C-w>j')
-vim.keymap.set('n', '<A-up>', '<C-w>k')
-vim.keymap.set('n', '<A-right>', '<C-w>l')
-vim.keymap.set('n', '<A-h>', '<C-w>h')
-vim.keymap.set('n', '<A-j>', '<C-w>j')
-vim.keymap.set('n', '<A-k>', '<C-w>k')
-vim.keymap.set('n', '<A-l>', '<C-w>l')
 vim.keymap.set('n', '<C-down>', '1<C-w>-')
 vim.keymap.set('n', '<C-up>', '1<C-w>+')
 vim.keymap.set('n', '<C-=>', '<C-w>=')

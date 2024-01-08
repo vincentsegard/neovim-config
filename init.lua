@@ -81,16 +81,22 @@ require('lazy').setup({
     main = "ibl",
   },
 
-  {
-    -- ZenMode 
-    "folke/zen-mode.nvim",
-    opts = {}
-  },
+  -- ZenMode 
+  { "folke/zen-mode.nvim", opts = {} },
+
+  -- Twilight
+  { "folke/twilight.nvim", opts = {} },
 
   {
-    -- Twilight
-    "folke/twilight.nvim",
-    opts = {}
+    --navigate from neovim to split terminal
+    'numToStr/Navigator.nvim',
+    opts = {
+      vim.keymap.set({'n', 't'}, '<A-left>', '<CMD>NavigatorLeft<CR>'),
+      vim.keymap.set({'n', 't'}, '<A-right>', '<CMD>NavigatorRight<CR>'),
+      vim.keymap.set({'n', 't'}, '<A-up>', '<CMD>NavigatorUp<CR>'),
+      vim.keymap.set({'n', 't'}, '<A-down>', '<CMD>NavigatorDown<CR>'),
+      vim.keymap.set({'n', 't'}, '<A-w>', '<CMD>NavigatorPrevious<CR>'),
+    }
   },
 
   -- 'gc' to comment visual regions/lines
