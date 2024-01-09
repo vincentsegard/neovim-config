@@ -140,7 +140,11 @@ return {
         selection_strategy = 'reset',
         sorting_strategy = 'ascending',
         no_ignore = true,
-        file_ignore_patterns = {
+        file_ignore_patterns =
+        {
+          'public/sipad-connect-dev/*',
+          'coverage/*',
+          'log/*',
           'tmp/cache/.*',
           '%.ttf',
           'dist/.*',
@@ -217,6 +221,8 @@ return {
       require("telescope.builtin").find_files({
         no_ignore = true, hidden = true, column = true, file_ignore_patterns =
           {
+            'public/sipad-connect-dev/*',
+            'coverage/*',
             'tmp/cache/.*',
             '%.ttf',
             'dist/.*',
@@ -242,7 +248,7 @@ return {
         local word = vim.fn.expand('<cWORD>')
         require('telescope.builtin').grep_string({search = word})
       end,
-    { desc = '[S]earch current [W]ORD' })
+      { desc = '[S]earch current [W]ORD' })
     vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
     vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
