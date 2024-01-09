@@ -40,7 +40,7 @@ vim.keymap.set('n', 'ss', ':split<Return>')
 vim.keymap.set('n', 'sv', ':vsplit<Return>')
 
 -- set :w! as :SudaWrite
-vim.keymap.set('c', 'w!', 'SudaWrite')
+vim.keymap.set('c', 'W!', 'SudaWrite')
 
 -- unbinding ZZ & ZQ
 vim.keymap.set('n', 'ZZ', '<nop>')

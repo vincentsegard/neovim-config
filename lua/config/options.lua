@@ -22,6 +22,9 @@ vim.opt.relativenumber = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
+-- Delay for keymap in ms (if nothing typed then keymap is not activated)
+vim.o.timeoutlen = 300
+
 -- Sync clipboard between OS and Neovim.
 -- Remove this option if you want your OS clipboard to remain independent.
 -- See `:help 'clipboard'`
@@ -43,7 +46,6 @@ vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'

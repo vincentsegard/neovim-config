@@ -36,25 +36,6 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-	icons_enabled = true,
-	theme = 'solarized-osaka',
-	component_separators = '|',
-	section_separators = '',
-      },
-      sections = {
-	lualine_a = {
-	  'buffers',
-	},
-      },
-    },
-  },
-
-  {
     "lukas-reineke/indent-blankline.nvim",
     opts = {
       indent = {
@@ -81,11 +62,46 @@ require('lazy').setup({
     main = "ibl",
   },
 
+  {
+    -- notification timeout
+    "rcarriga/nvim-notify",
+    opts = {
+      timeout = 20000,
+    },
+  },
   -- ZenMode 
   { "folke/zen-mode.nvim", opts = {} },
 
   -- Twilight
   { "folke/twilight.nvim", opts = {} },
+
+  {
+    -- animation of cursor when moving
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      opts.scroll = {
+	enable = false,
+      }
+    end,
+  },
+
+  {
+    -- tab customization
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+      { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+    },
+    opts = {
+      options = {
+	mode = "tabs",
+	show_buffer_close_icons = false,
+	show_close_icon = false,
+      },
+    },
+  },
 
   {
     --navigate from neovim to split terminal

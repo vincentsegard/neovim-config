@@ -86,6 +86,7 @@ return {
             ['<A-j>'] = actions.move_selection_next,
             ['<A-k>'] = actions.move_selection_previous,
             ['<TAB>'] = actions.toggle_selection + actions.move_selection_next,
+            ['<C-d>'] = actions.delete_buffer,
 
             -- ugly hack to prevent mouse click to do an unwanted quit of telescope
             ['<LeftMouse>'] = actions.move_selection_next,
@@ -141,21 +142,21 @@ return {
         sorting_strategy = 'ascending',
         no_ignore = true,
         file_ignore_patterns =
-        {
-          'public/sipad-connect-dev/*',
-          'coverage/*',
-          'log/*',
-          'tmp/cache/.*',
-          '%.ttf',
-          'dist/.*',
-          '%.git/.*',
-          '%.vim/.*',
-          'node_modules/.*',
-          '%.idea/.*',
-          '%.vscode/.*',
-          '%.history/.*',
-          '%.themes/.*'
-        },
+          {
+            'public/sipad-connect-dev/*',
+            'coverage/*',
+            'log/*',
+            'tmp/cache/.*',
+            '%.ttf',
+            'dist/.*',
+            '%.git/.*',
+            '%.vim/.*',
+            'node_modules/.*',
+            '%.idea/.*',
+            '%.vscode/.*',
+            '%.history/.*',
+            '%.themes/.*'
+          },
       },
     }
 
@@ -240,6 +241,7 @@ return {
     vim.keymap.set('n', '<leader>st', require('telescope.builtin').builtin, { desc = '[S]earch [T]elescope' })
     vim.keymap.set('n', '<leader>ss', require('telescope.builtin').live_grep, { desc = '[S]uper [S]earch (grep)' })
     vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_files, { desc = 'Search [G]it Files' })
+    vim.keymap.set('n', '<leader>ff', custom_find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sf', custom_find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
