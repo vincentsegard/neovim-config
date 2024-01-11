@@ -143,6 +143,9 @@ return {
         no_ignore = true,
         file_ignore_patterns =
           {
+            'lazy-lock.json',
+            'public/packs/*',
+            'public/packs-test/*',
             'public/sipad-connect-dev/*',
             'coverage/*',
             'log/*',
@@ -222,6 +225,8 @@ return {
       require("telescope.builtin").find_files({
         no_ignore = true, hidden = true, column = true, file_ignore_patterns =
           {
+            'public/packs/*',
+            'public/packs-test/*',
             'public/sipad-connect-dev/*',
             'coverage/*',
             'tmp/cache/.*',
