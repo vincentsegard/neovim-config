@@ -42,7 +42,11 @@ vim.keymap.set('n', 'sv', ':vsplit<Return>')
 -- set :w! as :SudaWrite
 vim.keymap.set('c', 'W!', 'SudaWrite')
 
--- unbinding ZZ & ZQ
+-- unbinding Arrows & ZZ & ZQ
+vim.keymap.set('n', '<Up>', '<nop>')
+vim.keymap.set('n', '<Down>', '<nop>')
+vim.keymap.set('n', '<Left>', '<nop>')
+vim.keymap.set('n', '<Right>', '<nop>')
 vim.keymap.set('n', 'ZZ', '<nop>')
 vim.keymap.set('n', 'ZQ', '<nop>')
 vim.keymap.set('n', 'Q', '<nop>')
@@ -60,7 +64,7 @@ vim.keymap.set('n', '<A-PageDown>', 'gT')
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'jb', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
