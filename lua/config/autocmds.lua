@@ -11,6 +11,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- autoformat on save 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    require("conform").format({ bufnr = args.buf })
+  end,
+})
+
 -- When vim launched, capslock = escape, trying dat way before making a rule in linux
 local capslockstuff_group = vim.api.nvim_create_augroup('capslockstuff', { clear = true })
 vim.api.nvim_create_autocmd("VimEnter", {
