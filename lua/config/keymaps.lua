@@ -1,5 +1,5 @@
 M = {}
--- mapleader defined in init.lua 
+-- mapleader defined in init.lua
 
 -- [[ Basic Keymaps ]]
 -- See `:help vim.keymap.set()
@@ -22,18 +22,18 @@ vim.keymap.set('n', '-', '<C-x>')
 -- Select all
 vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
 
--- Paste on highlighted without yank new highlight keeping old yank 
+-- Paste on highlighted without yank new highlight keeping old yank
 vim.keymap.set('x', '<leader>p', '"_dp')
 
 -- Replace highlighted text with whatever i type
 vim.keymap.set('n', '<leader>S', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = '[S]ubstitute current highlighted' })
 
 -- Move selected UP/down
-vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv', {silent = true})
-vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', {silent = true})
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
 
 -- Cursor don't move when J
-vim.keymap.set('n', 'J','mzJ`z')
+vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- Split
 vim.keymap.set('n', 'ss', ':split<Return>')
@@ -43,10 +43,10 @@ vim.keymap.set('n', 'sv', ':vsplit<Return>')
 vim.keymap.set('c', 'W!', 'SudaWrite')
 
 -- unbinding Arrows & ZZ & ZQ
-vim.keymap.set('n', '<Up>', '<nop>')
-vim.keymap.set('n', '<Down>', '<nop>')
-vim.keymap.set('n', '<Left>', '<nop>')
-vim.keymap.set('n', '<Right>', '<nop>')
+vim.keymap.set({ 'n', 'v', 'i' }, '<Up>', '<nop>')
+vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', '<nop>')
+vim.keymap.set({ 'n', 'v', 'i' }, '<Left>', '<nop>')
+vim.keymap.set({ 'n', 'v', 'i' }, '<Right>', '<nop>')
 vim.keymap.set('n', 'ZZ', '<nop>')
 vim.keymap.set('n', 'ZQ', '<nop>')
 vim.keymap.set('n', 'Q', '<nop>')
@@ -78,20 +78,17 @@ vim.keymap.set('', '<Esc>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>',
 -- Hyperlink open with CTRL + Left Click
 local openUrl = function()
   return function()
-    local file = vim.fn.expand("<cWORD>")
+    local file = vim.fn.expand '<cWORD>'
     -- xdg-open(linux)
-    local result = ":!open " .. file
-    if
-      string.match(file, "https") == "https"
-      or string.match(file, "http") == "http"
-    then
+    local result = ':!open ' .. file
+    if string.match(file, 'https') == 'https' or string.match(file, 'http') == 'http' then
       vim.cmd(result)
     else
-      return print("URL non détectée (placer curseur dessus)")
+      return print 'URL non détectée (placer curseur dessus)'
     end
   end
 end
-vim.keymap.set("n", "<C-LeftMouse>", openUrl(), { desc = "OpenUrl Undercurword" })
+vim.keymap.set('n', '<C-LeftMouse>', openUrl(), { desc = 'OpenUrl Undercurword' })
 
 -- alternate file bc azerty
 vim.keymap.set('n', '<A-z>', '<C-^>')

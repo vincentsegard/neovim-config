@@ -11,35 +11,35 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- autoformat on save 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
-  end,
-})
+-- autoformat on save
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = "*",
+--   callback = function(args)
+--     require("conform").format({ bufnr = args.buf })
+--   end,
+-- })
 
 -- When vim launched, capslock = escape, trying dat way before making a rule in linux
 local capslockstuff_group = vim.api.nvim_create_augroup('capslockstuff', { clear = true })
-vim.api.nvim_create_autocmd("VimEnter", {
-  group =  capslockstuff_group,
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = capslockstuff_group,
   callback = function()
-    vim.cmd("silent! !setxkbmap -option caps:escape")
+    vim.cmd 'silent! !setxkbmap -option caps:escape'
   end,
 })
 
 -- When vim quitted, capslock = capslock
-vim.api.nvim_create_autocmd("VimLeave", {
-  group =  capslockstuff_group,
+vim.api.nvim_create_autocmd('VimLeave', {
+  group = capslockstuff_group,
   callback = function()
-    vim.cmd("silent! !setxkbmap -option")
+    vim.cmd 'silent! !setxkbmap -option'
   end,
 })
 
 -- hack to make sure Vim leave correctly with previous auto_cmd
-vim.api.nvim_create_autocmd({ "VimLeave" }, {
+vim.api.nvim_create_autocmd({ 'VimLeave' }, {
   callback = function()
-    vim.cmd("sleep 50m")
+    vim.cmd 'sleep 50m'
   end,
 })
 
