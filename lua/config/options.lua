@@ -75,6 +75,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- persistent undo
 vim.opt.undofile = true
-vim.opt.redrawtime = 1000 -- Allow more time for loading syntax on large files
+vim.opt.undodir = vim.fn.stdpath("data") .. "undo"
 
 return M
