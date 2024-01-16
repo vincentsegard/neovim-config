@@ -126,6 +126,7 @@ return {
           },
           vimgrep_arguments = {
             'rg',
+            '--fixed-strings',
             '--no-ignore',
             '--color=never',
             '--no-heading',
