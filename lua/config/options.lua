@@ -31,7 +31,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true
 vim.opt.wrap = true
 -- go back to line without breaking a word 
-vim.o.linebreak = true
+vim.opt.linebreak = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -53,7 +53,8 @@ vim.o.completeopt = 'menuone,noselect,preview'
 vim.o.termguicolors = true
 
 -- Set default tab at 4 and use space as characters, can be override by plugins
-vim.opt.smartindent = true
+vim.opt.smartindent = false
+vim.opt.cindent = true          -- Autoindent new lines, smarter? (experimental)
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
