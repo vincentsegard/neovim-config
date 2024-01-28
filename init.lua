@@ -104,6 +104,11 @@ require('lazy').setup({
   },
 
   {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+
+  {
     --navigate from neovim to split terminal
     'numToStr/Navigator.nvim',
     opts = {
