@@ -62,21 +62,22 @@ require('lazy').setup({
     main = "ibl",
   },
 
+  -- notification timeout
   {
-    -- notification timeout
     "rcarriga/nvim-notify",
     opts = {
       timeout = 20000,
     },
   },
+
   -- ZenMode 
   { "folke/zen-mode.nvim", opts = {} },
 
   -- Twilight
   { "folke/twilight.nvim", opts = {} },
 
+  -- animation of cursor when moving
   {
-    -- animation of cursor when moving
     "echasnovski/mini.animate",
     event = "VeryLazy",
     opts = function(_, opts)
@@ -86,8 +87,8 @@ require('lazy').setup({
     end,
   },
 
+  -- tab customization
   {
-    -- tab customization
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     keys = {
@@ -103,13 +104,17 @@ require('lazy').setup({
     },
   },
 
+  -- rails
+  { 'tpope/vim-rails' },
+
+  -- tmux shortcuts free
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
 
+  --navigate from neovim to split terminal
   {
-    --navigate from neovim to split terminal
     'numToStr/Navigator.nvim',
     opts = {
       vim.keymap.set({'n', 't'}, '<A-left>', '<CMD>NavigatorLeft<CR>'),
