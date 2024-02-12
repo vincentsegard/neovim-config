@@ -61,6 +61,7 @@ vim.keymap.set('n', '<C-=>', '<C-w>=')
 -- Tab
 vim.keymap.set('n', '<A-PageUp>', 'gt')
 vim.keymap.set('n', '<A-PageDown>', 'gT')
+vim.keymap.set('n', '<A-w>', '<CMD>tabclose<CR>')
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

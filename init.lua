@@ -121,12 +121,24 @@ require('lazy').setup({
       vim.keymap.set({'n', 't'}, '<A-right>', '<CMD>NavigatorRight<CR>'),
       vim.keymap.set({'n', 't'}, '<A-up>', '<CMD>NavigatorUp<CR>'),
       vim.keymap.set({'n', 't'}, '<A-down>', '<CMD>NavigatorDown<CR>'),
-      vim.keymap.set({'n', 't'}, '<A-w>', '<CMD>NavigatorPrevious<CR>'),
     }
   },
 
   -- 'gc' to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+
+
+  -- 'git diff old history'
+  {
+    'sindrets/diffview.nvim',
+    config = function()
+      local diffview = require('diffview')
+      diffview:setup()
+      vim.keymap.set('n', '<leader>f', '<CMD>DiffviewFileHistory %<CR>', { desc = 'Git history [F]ile' })
+      vim.keymap.set('n', '<leader>g', '<CMD>DiffviewFileHistory<CR>', { desc = '[G]it history all' })
+    end
+
+  },
 
   { import = 'ninange.plugins' },
   { import = 'kickstart.plugins' },
