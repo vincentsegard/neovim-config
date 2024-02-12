@@ -58,4 +58,7 @@ vim.api.nvim_create_user_command("Cppath", function()
     vim.fn.setreg("+", path)
     vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
+
+-- ruby removing bad indent on .
+ vim.cmd [[autocmd FileType ruby setlocal indentkeys-=.]]
 return M
