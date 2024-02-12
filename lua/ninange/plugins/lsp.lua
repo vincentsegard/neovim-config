@@ -147,7 +147,7 @@ return {
 					vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 				end
 
-				nmap('<leader>r', vim.lsp.buf.rename, '[R]ename')
+				-- nmap('<leader>r', vim.lsp.buf.rename, '[R]ename')
 				nmap('<leader>c', vim.lsp.buf.code_action, '[C]ode Action')
 
 				nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
