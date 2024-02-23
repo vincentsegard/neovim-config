@@ -84,6 +84,9 @@ require('lazy').setup({
       opts.scroll = {
 	enable = false,
       }
+      opts.resize = {
+	enable = false,
+      }
     end,
   },
 

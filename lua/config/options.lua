@@ -14,7 +14,8 @@ vim.o.hlsearch = true
 -- gutter with relative (absolute just current line)
 vim.opt.number = true
 vim.opt.relativenumber = true
-
+-- switch between relative and absolute (when sharing view with coworkers)
+vim.keymap.set('n', '<leader>C', '<CMD>set rnu!<CR>', { desc = '[C]olumn numbers flip' })
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
