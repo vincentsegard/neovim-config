@@ -1,27 +1,24 @@
-return  {
-  -- Useful plugin to show you pending keybinds.
-  'folke/which-key.nvim',
-
-  opts = {
-    window = {
-      border = "single", -- none, single, double, shadow
+return {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+        win = {
+            border = "single", -- none, single, double, shadow
+        },
     },
-  },
-  config = function(_, opts)
-    require('which-key').setup(opts)
-    local _, wk = pcall(require, 'which-key')
-    wk.register({
-      -- add group
-      ['<leader>'] = {
-        f = { name = '+search...' },
-        s = { name = '+search...' },
-        h = { name = '+gitsign' },
-        t = { name = '+blame' },
-        x = { name = '+diagnostic' },
-      },
-    })
-  end,
-  setup = function()
-    require('core.utils').load_mappings('whichkey')
-  end
+    keys = {
+        { "<leader>f", group = "search..." },
+        { "<leader>h", group = "gitsign" },
+        { "<leader>s", group = "search..." },
+        { "<leader>t", group = "blame" },
+        { "<leader>x", group = "diagnostic" },
+
+        {
+            "<leader>?",
+            function()
+                require("which-key").show({ global = false })
+            end,
+            desc = "Buffer Local Keymaps (which-key)",
+        },
+    },
 }

@@ -76,6 +76,9 @@ require('lazy').setup({
   -- Twilight
   { "folke/twilight.nvim", opts = {} },
 
+  -- Asynchronous IO in Neovim,
+  {  "nvim-neotest/nvim-nio" },
+
   -- animation of cursor when moving
   {
     "echasnovski/mini.animate",
