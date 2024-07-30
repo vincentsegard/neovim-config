@@ -5,11 +5,11 @@ return {
 
 	-- Useful status updates for LSP
 	-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-	{ 'j-hui/fidget.nvim', opts = {} },
+	{ 'j-hui/fidget.nvim',       opts = {} },
 
 	-- Additional lua configuration, makes nvim stuff amazing!
 	'folke/neodev.nvim',
-	{	"williamboman/mason.nvim", config = true },
+	{ "williamboman/mason.nvim", config = true },
 
 	-- lsp servers
 	{
@@ -127,7 +127,7 @@ return {
 					},
 				},
 			},
-		setup = {},
+			setup = {},
 		},
 		init = function()
 			-- [[ Configure LSP ]]
@@ -167,12 +167,13 @@ return {
 				nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
 				nmap('<leader>wl', function()
 					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-					end, '[W]orkspace [L]ist Folders')
+				end, '[W]orkspace [L]ist Folders')
 
 				-- Create a command `:Format` local to the LSP buffer
 				vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 					vim.lsp.buf.format()
-					end, { desc = 'Format current buffer with LSP' })
+				end, { desc = 'Format current buffer with LSP' })
+				nmap('<leader>f', '<CMD>Format<CR>', '[F]ormat code')
 			end
 
 			local servers = {

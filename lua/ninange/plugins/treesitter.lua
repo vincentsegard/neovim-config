@@ -15,8 +15,8 @@ return {
                 -- Add languages to be installed here that you want installed for treesitter
                 ensure_installed = { 'bash', 'c', 'cmake', 'cpp', 'css', 'gitignore', 'html', 'http', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'json', 'typescript', 'scss', 'sql', 'vimdoc', 'vim', 'bash', 'ruby', 'rust', 'yaml' },
 
-                -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-                auto_install = false,
+                -- Autoinstall languages that are not installed.
+                auto_install = true,
 
                 highlight = { enable = true },
                 indent = { enable = false },
