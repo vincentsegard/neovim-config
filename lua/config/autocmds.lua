@@ -60,5 +60,6 @@ vim.api.nvim_create_user_command("Cppath", function()
 end, {})
 
 -- ruby removing bad indent on .
- vim.cmd [[autocmd FileType ruby setlocal indentkeys-=.]]
+vim.cmd [[autocmd FileType ruby setlocal indentkeys-=.]]
+
 return M
