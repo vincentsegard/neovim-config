@@ -173,7 +173,7 @@ return {
 				vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 					vim.lsp.buf.format()
 				end, { desc = 'Format current buffer with LSP' })
-				nmap('<leader>f', '<CMD>Format<CR>', '[F]ormat code')
+				nmap('<leader>F', '<CMD>Format<CR>', '[F]ormat code')
 			end
 
 			local servers = {

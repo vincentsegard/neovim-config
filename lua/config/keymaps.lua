@@ -99,9 +99,9 @@ vim.keymap.set('n', '<A-z>', '<C-^>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-N>')
 
 -- tmux conf
-vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>')
-vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>')
-vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>')
-vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>')
+-- vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>')
+-- vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>')
+-- vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>')
+-- vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>')
 
 return M

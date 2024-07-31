@@ -7,7 +7,6 @@ return {
         },
     },
     keys = {
-        { "<leader>f", group = "search..." },
         { "<leader>h", group = "gitsign" },
         { "<leader>s", group = "search..." },
         { "<leader>t", group = "blame" },
