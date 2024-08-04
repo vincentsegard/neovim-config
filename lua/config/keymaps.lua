@@ -12,6 +12,8 @@ vim.keymap.set('n', '<PageUp>', '<PageUp>zz')
 vim.keymap.set('n', '<PageDown>', '<PageDown>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<A-d>', '<C-d>zz')
+vim.keymap.set('n', '<A-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
