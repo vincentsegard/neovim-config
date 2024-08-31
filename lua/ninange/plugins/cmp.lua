@@ -71,7 +71,8 @@ return {
             fallback()
           end
         end, { 'i', 's' }),
-        ['<C-p>'] = cmp.mapping(function(fallback)
+
+        ['<S-TAB>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
@@ -82,8 +83,8 @@ return {
         end, { 'i', 's' }),
         ['<C-j>'] = cmp.mapping.scroll_docs(-4),
         ['<C-k>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping({
+        ['<C-l'] = cmp.mapping.complete(),
+        ['<C-m>'] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
         }),

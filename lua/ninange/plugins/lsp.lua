@@ -158,7 +158,7 @@ return {
 				nmap('<leader>w', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace Symbols')
 
 				-- See `:help K` for why this keymap
-				nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+				nmap('M', vim.lsp.buf.hover, '[M]anual Hover Documentation')
 				nmap('<C-s>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
 				-- Lesser used LSP functionality
