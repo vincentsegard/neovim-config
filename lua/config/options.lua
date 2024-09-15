@@ -25,6 +25,15 @@ vim.o.timeoutlen = 300
 -- Sync clipboard between OS and Neovim.
 -- Remove this option if you want your OS clipboard to remain independent.
 -- May need to install xclip or wl-copy (and ssh maybe lemonade)
+vim.o.clipboard = "unnamedplus"
+
+local function paste()
+  return {
+    vim.fn.split(vim.fn.getreg(""), "\n"),
+    vim.fn.getregtype(""),
+  }
+end
+
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
@@ -32,8 +41,10 @@ vim.g.clipboard = {
     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
   },
   paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    -- ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    -- ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    ['+'] = paste,
+    ['*'] = paste,
   },
 }
 vim.o.clipboard = 'unnamedplus'
