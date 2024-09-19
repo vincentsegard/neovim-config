@@ -47,7 +47,7 @@ vim.g.clipboard = {
     ['*'] = paste,
   },
 }
-vim.o.clipboard = 'unnamedplus'
+-- vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
