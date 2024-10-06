@@ -27,26 +27,28 @@ vim.o.timeoutlen = 300
 -- May need to install xclip or wl-copy (and ssh maybe lemonade)
 vim.o.clipboard = "unnamedplus"
 
--- local function paste()
---   return {
---     vim.fn.split(vim.fn.getreg(""), "\n"),
---     vim.fn.getregtype(""),
---   }
--- end
---
--- vim.g.clipboard = {
---   name = 'OSC 52',
---   copy = {
---     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
---     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
---   },
---   paste = {
---     -- ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
---     -- ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
---     ['+'] = paste,
---     ['*'] = paste,
---   },
--- }
+if vim.fn.getenv("SSH_CONNECTION") ~= vim.NIL then
+  local function paste()
+    return {
+      vim.fn.split(vim.fn.getreg(""), "\n"),
+      vim.fn.getregtype(""),
+    }
+  end
+
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      -- ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+      -- ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      ['+'] = paste,
+      ['*'] = paste,
+    },
+  }
+end
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
