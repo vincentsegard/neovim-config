@@ -9,6 +9,16 @@ return {
   --     -- vim.cmd.colorscheme 'onedark'
   --   end,
   -- },
+
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
+  {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+  },
+
   {
     'craftzdog/solarized-osaka.nvim',
     lazy = false,
@@ -16,7 +26,7 @@ return {
     opts = {},
     config = function()
       require('solarized-osaka').setup {
-        transparent = false,
+        transparent = true,
       }
       vim.cmd.colorscheme 'solarized-osaka'
     end,
