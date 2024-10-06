@@ -100,6 +100,9 @@ vim.keymap.set('n', '<A-z>', '<C-^>')
 -- quit terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-N>')
 
+-- current path to clipboard
+vim.keymap.set('n', '<leader>p', [[:let @+ = expand('%') | lua print(vim.fn.expand('%'))<CR>]], { noremap = true, silent = true, desc = 'desc copy current [P]ath' })
+
 -- tmux conf
 -- vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>')
 -- vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>')

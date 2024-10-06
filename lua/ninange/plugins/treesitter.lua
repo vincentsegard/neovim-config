@@ -63,15 +63,15 @@ return {
                             ['[]'] = '@class.outer',
                         },
                     },
-                    swap = {
-                        enable = true,
-                        swap_next = {
-                            ['<leader>p'] = '@parameter.inner',
-                        },
-                        swap_previous = {
-                            ['<leader>P'] = '@parameter.inner',
-                        },
-                    },
+                    -- swap = {
+                    --     enable = true,
+                    --     swap_next = {
+                    --         ['<leader>p'] = '@parameter.inner',
+                    --     },
+                    --     swap_previous = {
+                    --         ['<leader>P'] = '@parameter.inner',
+                    --     },
+                    -- },
                 },
             }
         end, 0)
