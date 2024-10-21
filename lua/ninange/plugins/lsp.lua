@@ -168,7 +168,9 @@ return {
       }
 
       require('neodev').setup()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+      -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
       local mason_lspconfig = require 'mason-lspconfig'
 
       mason_lspconfig.setup { ensure_installed = vim.tbl_keys(servers) }
