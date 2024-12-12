@@ -109,4 +109,11 @@ vim.keymap.set('n', '<leader>p', [[:let @+ = expand('%') | lua print(vim.fn.expa
 -- vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>')
 -- vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>')
 
+-- rebind ; to be as . because azerty
+vim.api.nvim_set_keymap('n', ';', '.', { noremap = true, silent = true })
+
+-- jump next first error lsp
+vim.api.nvim_set_keymap('n', '<leader>r', ':lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<CR>', { noremap = true, silent = true, desc = 'jump next ERROR' })
+
+
 return M
