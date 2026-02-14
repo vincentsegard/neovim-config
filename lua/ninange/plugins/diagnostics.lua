@@ -14,11 +14,10 @@ return {
         vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "lsp_references" }),
     },
     init = function()
-        -- Hack to auto quit Trouble before session.lua register current session
         vim.api.nvim_create_autocmd("VimLeavePre", {
             group = vim.api.nvim_create_augroup("trouble", { clear = true }),
             callback = function()
-                vim.cmd("TroubleClose")
+                vim.cmd("Trouble close")
             end
         })
     end
